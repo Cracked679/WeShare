@@ -14,10 +14,10 @@ const {
 //Sign User up
 exports.signup = (req, res) => {
   const newUser = {
-    email: req.body.email,
-    password: req.body.password,
+    email          : req.body.email,
+    password       : req.body.password,
     confirmPassword: req.body.confirmPassword,
-    handle: req.body.handle,
+    handle         : req.body.handle,
   };
 
   const { valid, errors } = validateSignupData(newUser);
@@ -46,12 +46,12 @@ exports.signup = (req, res) => {
       return data.user.getIdToken();
     })
     .then((idToken) => {
-      token = idToken;
+            token           = idToken;
       const userCredentials = {
-        handle: newUser.handle,
-        email: newUser.email,
+        handle   : newUser.handle,
+        email    : newUser.email,
         createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${default_image}?alt=media`,
+        imageUrl : `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${default_image}?alt=media`,
         userId,
       };
       return db.doc(`/users/${newUser.handle}`).set(userCredentials);
@@ -78,7 +78,7 @@ exports.signup = (req, res) => {
 //Log User In
 exports.login = (req, res) => {
   const user = {
-    email: req.body.email,
+    email   : req.body.email,
     password: req.body.password,
   };
 
@@ -161,9 +161,9 @@ exports.getAuthenticatedUser = (req, res) => {
 //Upload in Profile Image user
 exports.uploadImage = (req, res) => {
   const BusBoy = require("busboy");
-  const path = require("path");
-  const os = require("os");
-  const fs = require("fs");
+  const path   = require("path");
+  const os     = require("os");
+  const fs     = require("fs");
 
   const busboy = new BusBoy({
     headers: req.headers,
@@ -185,8 +185,8 @@ exports.uploadImage = (req, res) => {
     imageFileName = `${Math.round(
       Math.random() * 100000000000
     )}.${imageExtension}`;
-    const filepath = path.join(os.tmpdir(), imageFileName);
-    imageToBeUploaded = {
+    const filepath          = path.join(os.tmpdir(), imageFileName);
+          imageToBeUploaded = {
       filepath,
       mimetype,
     };
@@ -199,7 +199,7 @@ exports.uploadImage = (req, res) => {
       .bucket()
       .upload(imageToBeUploaded.filepath, {
         resumable: false,
-        metadata: {
+        metadata : {
           metadata: {
             contentType: imageToBeUploaded.mimetype,
           },
