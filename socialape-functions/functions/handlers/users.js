@@ -69,7 +69,7 @@ exports.signup = (req, res) => {
         });
       } else {
         return res.status(500).json({
-          error: err.code,
+          general: "Something went wrong, please try again.",
         });
       }
     });
@@ -99,14 +99,11 @@ exports.login = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      if (err.code === "auth/wrong-password") {
-        return res.status(403).json({
-          general: "Wrong credentials,please try again",
-        });
-      } else
-        return res.status(500).json({
-          error: err.code,
-        });
+      // auth/wrong-password
+      // auth/user-not-found
+      return res.status(403).json({
+        general: "Wrong credentials,please try again",
+      });
     });
 };
 
@@ -285,7 +282,7 @@ exports.uploadImage = (req, res) => {
 };
 
 //Mark the notifications as read
-exports.markedNotificationsRead = (req, res) => {
+exports.markNotificationsRead = (req, res) => {
   let batch = db.batch();
   req.body.forEach((notificationId) => {
     const notification = db.doc(`/notifications/${notificationId}`);
