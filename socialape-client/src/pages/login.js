@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import AppIcon from "../images/icon.png";
+import axios from "axios";
+import { Copyright } from "../App";
+//MUI  stuff
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
@@ -12,66 +16,10 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import PropTypes from "prop-types";
-import AppIcon from "../images/icon.png";
-import axios from "axios";
 
 const loginStyles = (theme) => ({
-  root: {
-    height: "100vh",
-  },
-  image: {
-    backgroundImage: "url(https://source.unsplash.com/random/?social-media)",
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    width: theme.spacing(7),
-    height: theme.spacing(7),
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    position: "relative",
-  },
-  customError: {
-    color: "red",
-    fontSize: "0.8rem",
-    marginTop: 10,
-  },
-  progress: {
-    position: "absolute",
-  },
+  ...theme.logSignupSpread,
 });
-
-//CopyRight function
-export function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="http://localhost:3000/">
-        SocialApe
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 class login extends Component {
   constructor() {
@@ -101,6 +49,7 @@ class login extends Component {
         this.setState({
           loading: false,
         });
+        localStorage.setItem("FBIdToken", `Bearer ${res.data.token}`);
         this.props.history.push("/");
       })
       .catch((err) => {

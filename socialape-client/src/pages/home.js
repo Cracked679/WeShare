@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Grid } from "@material-ui/core";
-import { Copyright } from "./login";
+import { Copyright } from "../App";
 import Box from "@material-ui/core/Box";
 
 import Scream from "../components/Scream";
