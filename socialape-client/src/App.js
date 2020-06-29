@@ -5,6 +5,10 @@ import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
 import AuthRoute from "./util/AuthRoute";
 
+//Redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 //MUI Stuff
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
@@ -51,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <div className="App">
+        <Provider store={store}>
           <Router>
             <Navbar />
             <div>
@@ -72,7 +76,7 @@ class App extends Component {
               </Switch>
             </div>
           </Router>
-        </div>
+        </Provider>
       </MuiThemeProvider>
     );
   }
