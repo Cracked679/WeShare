@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppIcon from "../images/icon.png";
-import axios from "axios";
 import { Copyright } from "../App";
 //MUI  stuff
 import Avatar from "@material-ui/core/Avatar";
