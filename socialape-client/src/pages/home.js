@@ -5,6 +5,7 @@ import { Copyright } from "../App";
 import Box from "@material-ui/core/Box";
 
 import Scream from "../components/Scream";
+import Profile from "../components/Profile";
 class home extends Component {
   state = {
     screams: null,
@@ -33,7 +34,7 @@ class home extends Component {
       <div className="container">
         <Grid container spacing={8}>
           <Grid item sm={4} xs={12}>
-            <p>Profile...</p>
+            <Profile />
           </Grid>
           <Grid item sm={8} xs={12}>
             {recentScreamsMarkup}
