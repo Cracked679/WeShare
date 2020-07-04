@@ -20,7 +20,7 @@ import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 
 const signupStyles = (theme) => ({
-  ...theme.logSignupSpread,
+  ...theme.spreadthis,
 });
 
 class signup extends Component {

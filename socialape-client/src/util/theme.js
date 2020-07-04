@@ -64,7 +64,7 @@ export default {
   typography: {
     userNextVariants: true,
   },
-  logSignupSpread: {
+  spreadthis: {
     root: {
       height: "100vh",
     },
