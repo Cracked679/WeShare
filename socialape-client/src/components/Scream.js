@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
 import BtnStructure from "../util/BtnStructure";
+import DeleteScream from "./DeleteScream";
 
 //Redux
 import { connect } from "react-redux";
@@ -25,6 +26,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const styles = (theme) => ({
   card: {
+    position: "relative",
     display: "flex",
     marginBottom: 20,
   },
@@ -70,8 +72,13 @@ class Scream extends Component {
         likeCount,
         commentCount,
       },
-      user: { authenticated },
+      user: {
+        authenticated,
+        credentials: { handle },
+      },
     } = this.props;
+
+    //Like Button
     const likeButton = !authenticated ? (
       <BtnStructure tip="Like">
         <Link to="/login">
@@ -87,6 +94,12 @@ class Scream extends Component {
         <FavoriteBorder color="primary" />
       </BtnStructure>
     );
+
+    //Delete Button
+    const deleteButton =
+      authenticated && userHandle === handle ? (
+        <DeleteScream screamId={screamId} />
+      ) : null;
     return (
       <div>
         <Card className={classes.card}>
@@ -106,6 +119,7 @@ class Scream extends Component {
             >
               {userHandle}
             </Typography>
+            {deleteButton}
             <Typography
               gutterBottom
               variant="body2"
