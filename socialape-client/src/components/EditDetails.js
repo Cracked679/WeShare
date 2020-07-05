@@ -18,7 +18,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 //Icons
 import EditIcon from "@material-ui/icons/Edit";
 
-const editDetailsStyle = (theme) => ({
+const styles = (theme) => ({
   ...theme.spreadthis,
   EditButton: {
     float: "right",
@@ -153,5 +153,5 @@ const mapStateToProps = (state) => ({
   credentials: state.user.credentials,
 });
 export default connect(mapStateToProps, { editUserDetails })(
-  withStyles(editDetailsStyle)(EditDetails)
+  withStyles(styles)(EditDetails)
 );

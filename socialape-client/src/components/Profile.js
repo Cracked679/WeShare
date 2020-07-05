@@ -22,7 +22,7 @@ import ExitToApp from "@material-ui/icons/ExitToApp";
 import { connect } from "react-redux";
 import { logoutUser, uploadImage } from "../redux/actions/userActions";
 
-const profileStyles = (theme) => ({
+const styles = (theme) => ({
   paper: {
     padding: 20,
   },
@@ -208,4 +208,4 @@ Profile.propTypes = {
 export default connect(
   mapStateToProps,
   mapActionsToProps
-)(withStyles(profileStyles)(Profile));
+)(withStyles(styles)(Profile));

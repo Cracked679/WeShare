@@ -19,7 +19,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { connect } from "react-redux";
 import { signupUser } from "../redux/actions/userActions";
 
-const signupStyles = (theme) => ({
+const styles = (theme) => ({
   ...theme.spreadthis,
 });
 
@@ -214,5 +214,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { signupUser })(
-  withStyles(signupStyles)(signup)
+  withStyles(styles)(signup)
 );
