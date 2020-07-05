@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import BtnStructure from "../util/BtnStructure";
+import PostScream from "./PostScream";
 
 //Redux
 import { connect } from "react-redux";
@@ -12,7 +13,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 
 //Icons
-import PostAddIcon from "@material-ui/icons/PostAdd";
 import HomeIcon from "@material-ui/icons/Home";
 import Notifications from "@material-ui/icons/Notifications";
 
@@ -25,9 +25,7 @@ class Navbar extends Component {
           <Toolbar className="nav-container">
             {authenticated ? (
               <Fragment>
-                <BtnStructure tip="Post A Scream">
-                  <PostAddIcon />
-                </BtnStructure>
+                <PostScream />
                 <Link to="/">
                   <BtnStructure tip="Home">
                     <HomeIcon />
