@@ -6,6 +6,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import PropTypes from "prop-types";
 import BtnStructure from "../util/BtnStructure";
 import DeleteScream from "./DeleteScream";
+import ScreamDialog from "./ScreamDialog";
 
 //Redux
 import { connect } from "react-redux";
@@ -137,6 +138,7 @@ class Scream extends Component {
               <ChatIcon color="primary" />
             </BtnStructure>
             <span>{commentCount} comments</span>
+            <ScreamDialog screamId={screamId} userHandle={userHandle} />
           </CardContent>
           {/* </CardActionArea> */}
         </Card>
