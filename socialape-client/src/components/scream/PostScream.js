@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-import BtnStructure from "../util/BtnStructure";
+import BtnStructure from "../../util/BtnStructure";
 
 //Redux
 import { connect } from "react-redux";
-import { postScream, clearErrors } from "../redux/actions/dataActions";
+import { postScream, clearErrors } from "../../redux/actions/dataActions";
 
 //MUI stuff
 import Button from "@material-ui/core/Button";

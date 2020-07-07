@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-import BtnStructure from "../util/BtnStructure";
+import BtnStructure from "../../util/BtnStructure";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import LikeButton from "./LikeButton";
+import Comments from "./Comments";
 
 //MUI Stuff
 import Dialog from "@material-ui/core/Dialog";
@@ -20,13 +21,11 @@ import ChatIcon from "@material-ui/icons/Chat";
 
 //Redux
 import { connect } from "react-redux";
-import { getScream } from "../redux/actions/dataActions";
+import { getScream } from "../../redux/actions/dataActions";
 
 const styles = (theme) => ({
   ...theme.spreadthis,
-  invisibleSeparator: {
-    border: "none",
-  },
+
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -47,7 +46,7 @@ const styles = (theme) => ({
   spinnerDiv: {
     textAlign: "center",
     marginTop: 50,
-    marginBottom: 5,
+    marginBottom: 50,
   },
 });
 
@@ -73,6 +72,7 @@ class ScreamDialog extends Component {
         commentCount,
         userImage,
         userHandle,
+        comments,
       },
       UI: { loading },
     } = this.props;
@@ -108,6 +108,8 @@ class ScreamDialog extends Component {
           </BtnStructure>
           <span>{commentCount} comments</span>
         </Grid>
+        <hr className={classes.visibleSeparator} />
+        <Comments comments={comments} />
       </Grid>
     );
     return (

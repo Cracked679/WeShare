@@ -19,7 +19,7 @@ import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
 //Components
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 //Pages
 import home from "./pages/home";
 import login from "./pages/login";

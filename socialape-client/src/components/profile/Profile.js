@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
-import BtnStructure from "../util/BtnStructure";
+import BtnStructure from "../../util/BtnStructure";
 
 //Comoponents
 import EditDetails from "./EditDetails";
@@ -20,7 +20,7 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import ExitToApp from "@material-ui/icons/ExitToApp";
 //Redux
 import { connect } from "react-redux";
-import { logoutUser, uploadImage } from "../redux/actions/userActions";
+import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 
 const styles = (theme) => ({
   paper: {
