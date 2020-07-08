@@ -69,17 +69,17 @@ export default {
       height: "100vh",
     },
     image: {
-      backgroundImage: "url(https://source.unsplash.com/random/?social-media)",
+      backgroundImage: "url(https://source.unsplash.com/random/)",
       backgroundRepeat: "no-repeat",
       backgroundColor: "#fafafa",
       backgroundSize: "cover",
       backgroundPosition: "center",
     },
     paper: {
-      margin: "64px 32px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      padding: 20,
     },
     avatar: {
       margin: "8px",
@@ -109,6 +109,49 @@ export default {
       width: "100%",
       borderBottom: "1px solid rgba(0,0,0,0.1)",
       marginBottom: 20,
+    },
+
+    profile: {
+      "& .image-wrapper": {
+        textAlign: "center",
+        position: "relative",
+        "& button": {
+          position: "absolute",
+          top: "80%",
+          left: "70%",
+        },
+      },
+      "& .profile-image": {
+        width: 200,
+        height: 200,
+        objectFit: "cover",
+        maxWidth: "100%",
+        borderRadius: "50%",
+      },
+      "& .profile-details": {
+        textAlign: "center",
+        "& span, svg": {
+          verticalAlign: "middle",
+        },
+        "& a": {
+          color: "#29B6F6",
+        },
+      },
+      "& hr": {
+        border: "none",
+        margin: "0 0 10px 0",
+      },
+      "& svg.button": {
+        "&:hover": {
+          cursor: "pointer",
+        },
+      },
+    },
+    buttons: {
+      textAlign: "center",
+      "& a": {
+        margin: "20px 10px",
+      },
     },
   },
 };

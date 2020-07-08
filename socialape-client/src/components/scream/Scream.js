@@ -23,6 +23,7 @@ import Typography from "@material-ui/core/Typography";
 import ChatIcon from "@material-ui/icons/Chat";
 
 const styles = (theme) => ({
+  ...theme.spreadthis,
   card: {
     position: "relative",
     display: "flex",

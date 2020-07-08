@@ -22,6 +22,13 @@ import { loginUser } from "../redux/actions/userActions";
 
 const styles = (theme) => ({
   ...theme.spreadthis,
+  paper: {
+    margin: "64px 32px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: 20,
+  },
 });
 
 class login extends Component {

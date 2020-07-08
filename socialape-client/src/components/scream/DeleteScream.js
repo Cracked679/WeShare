@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import { deleteScream } from "../../redux/actions/dataActions";
 
 const styles = (theme) => ({
+  ...theme.spreadthis,
   deleteButton: {
     position: "absolute",
     top: "10%",

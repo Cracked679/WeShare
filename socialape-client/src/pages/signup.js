@@ -21,6 +21,18 @@ import { signupUser } from "../redux/actions/userActions";
 
 const styles = (theme) => ({
   ...theme.spreadthis,
+  paper: {
+    marginBottom: "0px",
+    paddingBottom: "0px",
+    margin: "64px 32px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: 20,
+  },
+  copyright: {
+    marginTop: "3px",
+  },
 });
 
 class signup extends Component {
@@ -189,11 +201,11 @@ class signup extends Component {
                     </Link>
                   </Grid>
                 </Grid>
-                <Box mt={5}>
-                  <Copyright />
-                </Box>
               </form>
             </div>
+            <Box mt={5} className={classes.copyright}>
+              <Copyright />
+            </Box>
           </Grid>
         </Grid>
       </div>
